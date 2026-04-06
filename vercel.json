@@ -4,8 +4,10 @@
     { "src": "client/package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } },
     { "src": "server/index.js", "use": "@vercel/node" }
   ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "server/index.js" },
-    { "source": "/(.*)", "destination": "client/index.html" }
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server/index.js" },
+    { "src": "/assets/(.*)", "dest": "client/dist/assets/$1" },
+    { "src": "/favicon.svg", "dest": "client/dist/favicon.svg" },
+    { "src": "/(.*)", "dest": "client/dist/index.html" }
   ]
 }
