@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd client && npm install && npm run build"
+    "build": "npm run build --prefix client && mkdir -p public && cp -r client/dist/* public/"
   }
 }
